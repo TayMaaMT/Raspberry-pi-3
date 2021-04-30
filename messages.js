@@ -3,11 +3,32 @@ if(token){
     // const consumption = document.querySelector('#consumption');
     // const balance = document.querySelector('#balance');
     const username = document.querySelector('#username');
-
+    const send = document.querySelector('#send');
     allmessages()
     // setInterval(()=>{
     //     allmessages()
     // },10000)
+    send.addEventListener('click',()=>{
+        let content = document.querySelector('#content').value;
+        console.log(content)
+        const data = {sender:"admin",receiver:username.textContent,content}
+        fetch('https://raspberry3.herokuapp.com/user/addmessage', {
+        method: 'post', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        content="";
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+    
+      });
+    })
     function setUser(user){
         console.log("user",user)
         username.textContent=user;
@@ -46,7 +67,7 @@ function allmessages(){
             cell3.innerHTML = result.content;
             cell4.innerHTML = date.toLocaleTimeString();
             cell5.innerHTML = date.toLocaleDateString();
-            cell6.innerHTML =`<button type="submit" class="btn btn-primary p-2 m-2 mx-2 col-4" onclick="setUser('${result.sender}')" data-bs-toggle="modal" data-bs-target="#messageModal" role="button">رد</button>`
+            cell6.innerHTML =`<button type="submit" class="btn btn-primary p-2 m-2 mx-2 col-4" onclick="setUser('${result.sender}')" data-bs-toggle="modal" data-bs-target="#messageModal" role="button" >رد</button>`
     }
   })
   .catch((error) => {
@@ -54,3 +75,4 @@ function allmessages(){
     
   });
 }
+
