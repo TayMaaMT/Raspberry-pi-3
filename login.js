@@ -25,8 +25,11 @@ if(username=="admin"){
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
-        localStorage.setItem('token', data.token);
-        window.location.href='user.html'
+        if(data.token){
+            localStorage.setItem('token', data.token);
+            window.location.href='user.html'
+        }
+
    
     
       })
