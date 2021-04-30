@@ -15,7 +15,7 @@ if(username=="admin"){
         window.location.href='index.html'
     }
 }else{
-    fetch('http://localhost:3000/user/login', {
+    fetch('https://raspberry3.herokuapp.com/user/login', {
         method: 'post', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',

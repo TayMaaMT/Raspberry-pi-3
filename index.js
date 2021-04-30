@@ -9,7 +9,7 @@ if(token){
     let addUser = document.querySelector("#addUser");
     let deleteUser = document.querySelector("#deleteUser");
     viewAll()
-    fetch('http://localhost:3000/user/allUsers', {
+    fetch('https://raspberry3.herokuapp.com/user/allUsers', {
     method: 'get', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ if(token){
   });
   addBalance.addEventListener('click',()=>{
         let data = {balance:balance.value,username:selector.value}
-        fetch('http://localhost:3000/user/addBalance', {
+        fetch('https://raspberry3.herokuapp.com/user/addBalance', {
             method: 'post', // or 'PUT'
             headers: {
               'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ if(token){
 
   addUser.addEventListener('click',()=>{
     let data = {username:username.value,password:password.value}
-    fetch('http://localhost:3000/user/addUser', {
+    fetch('https://raspberry3.herokuapp.com/user/addUser', {
         method: 'post', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ if(token){
 
 deleteUser.addEventListener('click',()=>{
     let data = {username:deleteSelector.value}
-    fetch('http://localhost:3000/user/deleteUser', {
+    fetch('https://raspberry3.herokuapp.com/user/deleteUser', {
         method: 'post', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ deleteUser.addEventListener('click',()=>{
 
 function viewAll(){
     var table = document.querySelector("#viewALl");
-    fetch('http://localhost:3000/user/allUsers', {
+    fetch('https://raspberry3.herokuapp.com/user/allUsers', {
     method: 'GET', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',

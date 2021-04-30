@@ -17,7 +17,7 @@ if(token){
 }
 
 function user(){
-    fetch('http://localhost:3000/user/user', {
+    fetch('https://raspberry3.herokuapp.com/user/user', {
     method: 'post', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',

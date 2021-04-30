@@ -15,7 +15,7 @@ if(token){
 
 function allmessages(){
     var table = document.querySelector("#messages");
-    fetch('http://localhost:3000/user/messages', {
+    fetch('https://raspberry3.herokuapp.com/user/messages', {
     method: 'post', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
