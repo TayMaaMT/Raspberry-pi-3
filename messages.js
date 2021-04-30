@@ -1,14 +1,17 @@
 var token = localStorage.getItem('token');
 if(token){
-    const consumption = document.querySelector('#consumption');
-    const balance = document.querySelector('#balance');
+    // const consumption = document.querySelector('#consumption');
+    // const balance = document.querySelector('#balance');
     const username = document.querySelector('#username');
 
     allmessages()
     // setInterval(()=>{
     //     allmessages()
     // },10000)
-
+    function setUser(user){
+        console.log("user",user)
+        username.textContent=user;
+    }
 }else{
     window.location.href='login.html'
 }
@@ -43,7 +46,7 @@ function allmessages(){
             cell3.innerHTML = result.content;
             cell4.innerHTML = date.toLocaleTimeString();
             cell5.innerHTML = date.toLocaleDateString();
-            cell6.innerHTML =`<button type="submit" class="btn btn-primary p-2 m-2 mx-2 col-4" onclick="window.location.href='window.location.href+"?username="+result.sender'" data-bs-toggle="modal" data-bs-target="#messageModal" role="button">رد</button>`
+            cell6.innerHTML =`<button type="submit" class="btn btn-primary p-2 m-2 mx-2 col-4" onclick="setUser('${result.sender}')" data-bs-toggle="modal" data-bs-target="#messageModal" role="button">رد</button>`
     }
   })
   .catch((error) => {
