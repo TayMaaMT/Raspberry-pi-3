@@ -73,7 +73,7 @@ function allmessages(){
     let messages = data.messages
     for(let i in messages){
         let result = messages[i];
-        seeMessages.innerHTML =`
+        seeMessages.innerHTML +=`
 
         <p style="text-align: center; font-size: larger;">${result.content}</p>
         <hr>`

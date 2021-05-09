@@ -1,13 +1,16 @@
 var token = localStorage.getItem('token');
 if(token){
     let selector = document.querySelector("#selector");
+    let selector1 = document.querySelector("#selector1");
     let deleteSelector = document.querySelector("#deleteSelector");
     let addBalance = document.querySelector("#addBalance");
     let balance = document.querySelector("#balance");
+    let pulses = document.querySelector("#pulses");
     let username = document.querySelector("#username");
     let password = document.querySelector("#password");
     let addUser = document.querySelector("#addUser");
     let deleteUser = document.querySelector("#deleteUser");
+    let addPulses = document.querySelector("#addPulses");
     viewAll()
     fetch('https://raspberry3.herokuapp.com/user/allUsers', {
     method: 'get', // or 'PUT'
@@ -23,6 +26,7 @@ if(token){
     for(let i in users){
         selector.innerHTML+=`<option value="${users[i].username}">${users[i].username}</option>`
         deleteSelector.innerHTML+=`<option value="${users[i].username}">${users[i].username}</option>`
+        selector1.innerHTML+=`<option value="${users[i].username}">${users[i].username}</option>`
     }
 
   })
@@ -48,6 +52,25 @@ if(token){
         
           });
   })
+
+  addPulses.addEventListener('click',()=>{
+    let data = {pulses:pulses.value,username:selector1.value}
+    fetch('https://raspberry3.herokuapp.com/user/addPulses', {
+        method: 'post', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+    
+      });
+})
 
   addUser.addEventListener('click',()=>{
     let data = {username:username.value,password:password.value}

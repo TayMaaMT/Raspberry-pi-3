@@ -23,6 +23,7 @@
                 <a class="btn btn-primary p-2 m-2 mx-2 col-4" href="./load.html" role="button">مراقبة الأحمال
                     والاستهلاك </a>
                 <a class="btn btn-primary p-2 m-2 mx-2 col-4" data-bs-toggle="modal" data-bs-target="#addModal"  role="button">إضافة مستهلك</a>
+                <a class="btn btn-primary p-2 m-2 mx-2 col-4" data-bs-toggle="modal" data-bs-target="#priceModal"  role="button">سعر الساعة للمستهلك</a>
                 <a class="btn btn-primary p-2 m-2 mx-2 col-4" data-bs-toggle="modal" data-bs-target="#payModal"  role="button">اضافة رصيد
                     لمستهلك</a>
                 <a class="btn btn-primary p-2 m-2 mx-2 col-4" data-bs-toggle="modal" data-bs-target="#deleteModal" role="button">  حذف مستهلك</a>
@@ -90,6 +91,34 @@
           </div>
         </div>
       </div>
+      <div class="modal" id="priceModal"  tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">تحديد سعر الساعة</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+              <!-- <p style="text-align: center; font-size: larger;">1000 KW</p> -->
+              <div class="form-group mb-1">
+              <label for="exampleFormControlTextarea1">اختر مستهلك</label>
+              <select class="form-select" id="selector1">
+                <option selected>اختر...</option>
+              </select>
+            </div>
+            <label for="exampleInputEmail1">النبضات</label>
+                <input type="text" class="form-control form-control-sm" id="pulses" aria-describedby="emailHelp">
+
+            </div>  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+              <button type="submit" id="addPulses" class="btn btn-primary" data-bs-dismiss="modal">اضافة </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
 
       <div class="modal" id="addModal"  tabindex="-1">
         <div class="modal-dialog">
